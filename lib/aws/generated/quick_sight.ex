@@ -1442,6 +1442,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      quicksight_identifier() :: %{
+        "Identity" => String.t()
+      }
+
+  """
+  @type quicksight_identifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_ip_restriction_response() :: %{
         "AwsAccountId" => String.t(),
         "Enabled" => boolean(),
@@ -5069,15 +5080,15 @@ defmodule AWS.QuickSight do
   ## Example:
 
       topic_i_r_metric() :: %{
-        "CalculatedFieldReferences" => list(identifier()()),
+        "CalculatedFieldReferences" => list(quicksight_identifier()()),
         "ComparisonMethod" => topic_i_r_comparison_method(),
         "DisplayFormat" => list(any()),
         "DisplayFormatOptions" => display_format_options(),
         "Expression" => String.t(),
         "Function" => agg_function(),
-        "MetricId" => identifier(),
+        "MetricId" => quicksight_identifier(),
         "NamedEntity" => named_entity_ref(),
-        "Operands" => list(identifier()())
+        "Operands" => list(quicksight_identifier()())
       }
 
   """
@@ -5528,7 +5539,7 @@ defmodule AWS.QuickSight do
         "Inverse" => boolean(),
         "LastNextOffset" => topic_constant_value(),
         "NullFilter" => list(any()),
-        "OperandField" => identifier(),
+        "OperandField" => quicksight_identifier(),
         "Range" => topic_constant_value(),
         "SortDirection" => list(any()),
         "TimeGranularity" => list(any()),
@@ -6791,7 +6802,7 @@ defmodule AWS.QuickSight do
 
       filter_agg_metrics() :: %{
         "Function" => list(any()),
-        "MetricOperand" => identifier(),
+        "MetricOperand" => quicksight_identifier(),
         "SortDirection" => list(any())
       }
 
@@ -9529,7 +9540,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       topic_sort_clause() :: %{
-        "Operand" => identifier(),
+        "Operand" => quicksight_identifier(),
         "SortDirection" => list(any())
       }
 
@@ -11332,7 +11343,7 @@ defmodule AWS.QuickSight do
       topic_i_r_group_by() :: %{
         "DisplayFormat" => list(any()),
         "DisplayFormatOptions" => display_format_options(),
-        "FieldName" => identifier(),
+        "FieldName" => quicksight_identifier(),
         "NamedEntity" => named_entity_ref(),
         "Sort" => topic_sort_clause(),
         "TimeGranularity" => list(any())
@@ -11340,17 +11351,6 @@ defmodule AWS.QuickSight do
 
   """
   @type topic_i_r_group_by() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      identifier() :: %{
-        "Identity" => String.t()
-      }
-
-  """
-  @type identifier() :: %{String.t() => any()}
 
   @typedoc """
 
