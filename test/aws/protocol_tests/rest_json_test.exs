@@ -101,7 +101,7 @@ defmodule AWS.ProtocolTests.RestJSONTest do
     test "case #1", %{client: client, metadata: metadata} do
       file = File.read!("./test/fixtures/sample.png")
 
-      input = %{"Body" => file}
+      input = file
       path = "/2014-01-01/jobsByPipeline/foo"
 
       bypass = Bypass.open()

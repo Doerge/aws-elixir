@@ -99,7 +99,7 @@ defmodule AWS.Request do
     payload =
       cond do
         send_body_as_binary? ->
-          Map.fetch!(input, "Body")
+          input
 
         http_method in [:get, :head, :options] ->
           ""

@@ -40,10 +40,11 @@ defmodule AWS.Generated.S3Test do
       end
     end
 
-    test "optional headers, and optional query parameters are correctly used", %{
-      client: client,
-      bypass: bypass
-    } do
+    test "optional headers, and optional query parameters are correctly used with get_object/4",
+         %{
+           client: client,
+           bypass: bypass
+         } do
       bucket = "mybucket"
       key = "mykey"
       md5 = "foobar"
@@ -75,10 +76,11 @@ defmodule AWS.Generated.S3Test do
       Bypass.down(bypass)
     end
 
-    test "required query parameters are correctly used", %{
-      client: client,
-      bypass: bypass
-    } do
+    test "required query parameters are correctly used with get_bucket_analytics_configuration/3",
+         %{
+           client: client,
+           bypass: bypass
+         } do
       bucket = "mybucket"
       analytics_config_id = "foobar"
 
@@ -132,7 +134,7 @@ defmodule AWS.Generated.S3Test do
       Bypass.down(bypass)
     end
 
-    test "required headers are correctly used", %{
+    test "required headers are correctly used with get_object_attributes/4", %{
       client: client,
       bypass: bypass
     } do
@@ -185,6 +187,141 @@ defmodule AWS.Generated.S3Test do
       # This is the only function with required headers in S3.
       {:ok, _body, _} =
         AWS.S3.get_object_attributes(client, bucket, key, obj_attrs)
+
+      Bypass.down(bypass)
+    end
+
+    # write_get_object_response missing required params in def
+    test "optional headers with HTTP HEAD request with head_bucket/3", %{
+      client: client,
+      bypass: bypass
+    } do
+      bucket = "mybucket"
+      owner = "foobar"
+
+      client = %{client | port: bypass.port}
+
+      Bypass.expect(bypass, fn conn ->
+        # No required headers for this method
+        # Optional header
+        [header_owner] =
+          Plug.Conn.get_req_header(conn, "x-amz-expected-bucket-owner")
+
+        assert header_owner == owner
+
+        Plug.Conn.resp(
+          conn,
+          200,
+          ""
+        )
+      end)
+
+      {:ok, _body, _} =
+        AWS.S3.head_bucket(client, bucket, expected_bucket_owner: owner)
+
+      Bypass.down(bypass)
+    end
+
+    test "optional body request not sent with create_bucket/3", %{
+      client: client,
+      bypass: bypass
+    } do
+      bucket = "mybucket"
+
+      client = %{client | port: bypass.port}
+
+      # No body sent
+      input = nil
+
+      Bypass.expect_once(bypass, fn conn ->
+        # No required headers for this method
+        # Optional header
+        assert {:ok, "", conn} ==
+                 Plug.Conn.read_body(conn)
+
+        conn
+        |> Plug.Conn.put_resp_header("location", "foobar")
+        |> Plug.Conn.resp(
+          200,
+          ""
+        )
+      end)
+
+      {:ok, _body, _} =
+        AWS.S3.create_bucket(client, bucket, input)
+
+      Bypass.down(bypass)
+    end
+
+    test "optional body request sent with create_bucket/3", %{
+      client: client,
+      bypass: bypass
+    } do
+      bucket = "mybucket"
+
+      client = %{client | port: bypass.port}
+      # Body sent
+      input = %{
+        "CreateBucketConfiguration" => %{
+          "LocationConstraint" => "Europe"
+        }
+      }
+
+      Bypass.expect_once(bypass, fn conn ->
+        # No required headers for this method
+        # Optional header
+        {:ok, body, conn} =
+          Plug.Conn.read_body(conn)
+
+        assert body != ""
+
+        conn
+        |> Plug.Conn.put_resp_header("location", "foobar")
+        |> Plug.Conn.resp(
+          200,
+          ""
+        )
+      end)
+
+      {:ok, _body, _} =
+        AWS.S3.create_bucket(client, bucket, input)
+
+      Bypass.down(bypass)
+    end
+
+    test "required body request with upload_part/6", %{
+      client: client,
+      bypass: bypass
+    } do
+      bucket = "mybucket"
+      key = "fookey"
+      part_number = 123
+      upload_id = "up_id_42"
+      input = "part-content"
+
+      client = %{client | port: bypass.port}
+
+      Bypass.expect(bypass, fn conn ->
+        # No required headers for this method
+        # Optional header
+        {:ok, read_input, conn} =
+          Plug.Conn.read_body(conn)
+
+        assert read_input == input
+
+        conn
+        |> Plug.Conn.resp(
+          200,
+          ""
+        )
+      end)
+
+      {:ok, _body, _} =
+        AWS.S3.upload_part(client, bucket, key, part_number, upload_id, input)
+
+      assert_raise FunctionClauseError, fn ->
+        AWS.S3.upload_part(client, bucket, key, part_number, upload_id, nil)
+      end
 
       Bypass.down(bypass)
     end

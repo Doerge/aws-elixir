@@ -146,7 +146,7 @@ defmodule AWS.RequestTest do
                  "/foo/bar",
                  [],
                  [],
-                 %{"Body" => "data"},
+                 "data",
                  [send_body_as_binary?: true],
                  200
                )
